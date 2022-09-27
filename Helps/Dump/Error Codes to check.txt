@@ -1,0 +1,2 @@
+[NRU-chatserver.websocket.UndergroundEndpoint]: passivateEJB(), Exception caught ->
+Severe:   java.io.EOFException

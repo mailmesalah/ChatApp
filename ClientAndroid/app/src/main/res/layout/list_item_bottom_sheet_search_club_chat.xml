@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:shrinkColumns="0"
+
+    android:paddingStart="10dp"
+    android:paddingLeft="10dp"
+    android:paddingEnd="10dp"
+    android:paddingRight="10dp"
+    >
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:layout_margin="5dp"
+            >
+
+                <TextView
+                    android:id="@+id/textViewBottomSheetClubChatProfileName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Club Name > Post"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:gravity="top"
+                    />
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+                android:id="@+id/textViewBottomSheetClubChatDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="06/07/2016 06:09 am"
+                android:textSize="12dp"
+                android:gravity="right"
+                />
+
+        </TableLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="0"
+        android:stretchColumns="0"
+        android:gravity="left"
+        android:layout_gravity="left|center">
+
+            <TextView
+                android:id="@+id/textViewBottomSheetClubChatDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search result found in this chat section"
+                android:textSize="12dp"
+                android:layout_weight="1"
+                />
+
+    </TableRow>
+</TableLayout>

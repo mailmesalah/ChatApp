@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:shrinkColumns="1"
+    android:stretchColumns="1">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageButtonClubChatHeaderProfileImage"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_default_profile_image" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="8dp">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textViewClubChatHeaderProfileName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:padding="5dp"
+                    android:text="Club Name"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textViewClubChatHeaderNoMember"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|start"
+                    android:padding="5dp"
+                    android:text="245 members"
+                    android:textSize="10dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <LinearLayout>
+
+                    <RatingBar
+                        android:id="@+id/ratingBarClubChatHeaderTotalRating"
+                        style="@style/RatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:progressBackgroundTint="@color/colorPrimaryDark"
+                        android:progressTint="@color/colorPrimaryDark"
+                        android:rating="2.5"
+                        android:secondaryProgressTint="@color/colorPrimaryDark" />
+                </LinearLayout>
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_gravity="top|center_horizontal">
+
+                <TextView
+                    android:id="@+id/textViewClubChatHeaderLastUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="06/07/2016 06:09 am"
+                    android:textSize="12dp"
+
+                    />
+            </TableRow>
+
+            <TableRow>
+
+                <LinearLayout>
+
+                    <ToggleButton
+                        android:id="@+id/chkState"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/toggle_selector"
+                        android:textOff=""
+                        android:textOn=""
+                        />
+
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom|center_horizontal">
+
+                <TextView
+                    android:id="@+id/textViewClubChatHeaderUnseenMessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="222"
+                    android:textSize="14dp"
+
+                    />
+            </TableRow>
+
+        </TableLayout>
+    </TableRow>
+
+</TableLayout>

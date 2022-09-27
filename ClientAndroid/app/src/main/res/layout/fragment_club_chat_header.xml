@@ -1,0 +1,67 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="chatapp.dashboard.fragments.club.ClubChatActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerClubChatHeader"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAddChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_add"
+        app:layout_anchor="@id/recyclerClubChatHeader"
+        app:layout_anchorGravity="start|bottom"
+        app:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabClubs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_club_header"
+        app:layout_anchor="@id/recyclerClubChatHeader"
+        app:layout_anchorGravity="center|bottom"
+        app:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_search"
+        app:layout_anchor="@id/recyclerClubChatHeader"
+        app:layout_anchorGravity="end|bottom"
+        app:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        />
+
+    <!-- Club List as Bottom Sheet -->
+    <include layout="@layout/bottom_sheet_club_list" />
+
+    <!-- Search Club Chat as Bottom Sheet -->
+    <include layout="@layout/bottom_sheet_search_club_chat" />
+
+</android.support.design.widget.CoordinatorLayout>

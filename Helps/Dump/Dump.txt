@@ -1,0 +1,282 @@
+ prm = (ProfileRegistrationMessage) message;
+                if (prm.getSerialNo() == 1) {
+                    mImageArray = new ArrayList<>(prm.getImageArraySize());
+                }
+                mImageArray.add(prm.getSerialNo(), prm.getImageArray());
+
+                mTotalArraySize += prm.getCurrentChuckSize();
+
+                if (prm.IsCompleted()) {
+                    byte[] wholeImageData = new byte[mTotalArraySize];
+                    int destPos = 0;
+                    for (int i = 0; i < mImageArray.size(); i++) {
+                        System.arraycopy(mImageArray.get(i), 0, wholeImageData, destPos, mImageArray.get(i).length);
+                        destPos += mImageArray.get(i).length;
+                    }
+
+                    File dir = new File(GeneralPaths.PROFILE_IMAGE_PATH);
+                    if (!dir.exists()) {
+                        dir.mkdirs();
+                    }
+
+                    File file = new File(dir, mProfile.getProfileID() + ".jpg");
+                    ImageIO.write(MultiTool.getImageFromByteArray(wholeImageData), "jpg", file);
+
+                    prm.setProfileImage(mProfile, file.getName());
+
+                }
+
+                mClient.getBasicRemote().sendObject(message);
+
+
+<exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+/*Query query = em.createQuery(""
+        + "Select P, C.profile, CR.profile, CB.profile "
+        + "From Profile P "
+        + "Left Outer Join Contact C On P=C.profile"
+        + "Left Outer Join ContactRequest CR On P=CR.profile"
+        + "Left Outer Join ContactBlocked CB On P=CB.profile"
+        + "Where P.profileName Like :profileName");
+        List resultList = query.getResultList();*/
+
+ /*
+    
+    @Override
+    public Boolean isHardwareIDUsed(final String hardwareID) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<HardwareID> cq = cb.createQuery(HardwareID.class);
+        Root<HardwareID> r = cq.from(HardwareID.class);
+        cq.where(cb.equal(r.get("hardwareID"), hardwareID));
+
+        TypedQuery<HardwareID> q = em.createQuery(cq);
+        List<HardwareID> results = q.getResultList();
+        return results.isEmpty();
+    }
+
+    @Override
+    public Boolean isMobileNumberUsed(final String mobileNumber) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<MobileNumber> cq = cb.createQuery(MobileNumber.class);
+        Root<MobileNumber> r = cq.from(MobileNumber.class);
+        cq.where(cb.equal(r.get("mobileNumber"), mobileNumber));
+
+        TypedQuery<MobileNumber> q = em.createQuery(cq);
+        List<MobileNumber> results = q.getResultList();
+        return results.isEmpty();
+    }
+
+    @Override
+    public Profile createProfile(String profileName, String mobileNumber, String hardwareID, String quote, String password) {
+        String profileID = hardwareID + mobileNumber+Instant.now();
+        //Creating profile
+        Profile profile = new Profile(profileID, profileName, quote);
+        em.persist(profile);
+        //Adding Mobile Number
+        MobileNumber mob = new MobileNumber(profile, mobileNumber);
+        em.persist(mob);
+        //Adding Hardware ID
+        HardwareID hard = new HardwareID(profile, hardwareID);
+        em.persist(hard);
+        //Adding Profile Password
+        ProfilePassword pass = new ProfilePassword(profile, password);
+        em.persist(pass);
+
+        return profile;
+    }
+
+    @Override
+    public Profile readProfile(String mobileNumber, String hardwareID) {
+
+        if (!mobileNumber.isEmpty() && !hardwareID.isEmpty()) {
+            //Check Both Mobile Number and Hardware ID
+            TypedQuery<Profile> query = em.createNamedQuery("findProfileByPhone", Profile.class);
+            query.setParameter("mobileNumber", mobileNumber);
+            query.setParameter("hardwareID", hardwareID);
+            return query.getSingleResult();
+        } else if (!mobileNumber.isEmpty()) {
+            //Check with Mobile Number
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<MobileNumber> cq = cb.createQuery(MobileNumber.class);
+            Root<MobileNumber> r = cq.from(MobileNumber.class);
+            cq.where(cb.equal(r.get("mobileNumber"), mobileNumber));
+
+            TypedQuery<MobileNumber> q = em.createQuery(cq);
+            List<MobileNumber> results = q.getResultList();
+
+            if (!results.isEmpty()) {
+                return results.get(0).getProfile();
+            }
+        } else {
+            //Check with hardware ID
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<HardwareID> cq = cb.createQuery(HardwareID.class);
+            Root<HardwareID> r = cq.from(HardwareID.class);
+            cq.where(cb.equal(r.get("hardwareID"), hardwareID));
+
+            TypedQuery<HardwareID> q = em.createQuery(cq);
+            List<HardwareID> results = q.getResultList();
+
+            if (!results.isEmpty()) {
+                return results.get(0).getProfile();
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<Profile> readSuggestList(Profile profile) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Profile> cq = cb.createQuery(Profile.class);
+        Root<SuggestList> r = cq.from(SuggestList.class);
+        cq.where(cb.equal(r.get("profile"), profile));
+
+        TypedQuery<Profile> q = em.createQuery(cq);
+        return q.getResultList();
+    }
+
+    @Override
+    public Boolean suspendProfile(Profile profile) {
+        //Find Mobile Number and Hardware ID
+        String mobileNumber="";
+        String hardwareID="";
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<MobileNumber> cq = cb.createQuery(MobileNumber.class);
+        Root<MobileNumber> r = cq.from(MobileNumber.class);
+        cq.where(cb.equal(r.get("profile"), profile));
+
+        TypedQuery<MobileNumber> q = em.createQuery(cq);
+        List<MobileNumber> results = q.getResultList();
+
+        if (!results.isEmpty()) {
+            mobileNumber=results.get(0).getMobileNumber();
+        }
+        
+        CriteriaBuilder cb1 = em.getCriteriaBuilder();
+        CriteriaQuery<HardwareID> cq1 = cb1.createQuery(HardwareID.class);
+        Root<HardwareID> r1 = cq1.from(HardwareID.class);
+        cq1.where(cb1.equal(r1.get("profile"), profile));
+
+        TypedQuery<HardwareID> q1 = em.createQuery(cq1);
+        List<HardwareID> results1 = q1.getResultList();
+
+        if (!results1.isEmpty()) {
+            hardwareID=results1.get(0).getHardwareID();
+        }
+
+        //Remove From Profile
+        em.remove(profile);
+        //Move to Inactive Profile
+        InactiveProfile iProfile = new InactiveProfile(profile, hardwareID, mobileNumber, "Suspended");
+        em.persist(iProfile);
+        
+        return true; 
+    }
+
+    @Override
+    public List<Profile> readContactList(Profile profile) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Profile> cq = cb.createQuery(Profile.class);
+        Root<ContactList> r = cq.from(ContactList.class);
+        cq.where(cb.equal(r.get("profile"), profile));
+
+        TypedQuery<Profile> q = em.createQuery(cq);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Profile> readBlockList(Profile profile) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Profile> cq = cb.createQuery(Profile.class);
+        Root<BlockList> r = cq.from(BlockList.class);
+        cq.where(cb.equal(r.get("profile"), profile));
+
+        TypedQuery<Profile> q = em.createQuery(cq);
+        return q.getResultList();
+    }
+
+    @Override
+    public Profile updateProfileImage(Profile profile, String profileImage) {
+        profile.setProfileImage(profileImage);
+        em.merge(profile);
+        
+        return profile;
+    }
+
+    @Override
+    public Profile readProfile(String profileID) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Profile> cq = cb.createQuery(Profile.class);
+        Root<Profile> r = cq.from(Profile.class);
+        cq.where(cb.equal(r.get("profileID"), profileID));
+
+        TypedQuery<Profile> q = em.createQuery(cq);
+        return q.getSingleResult();
+    }
+
+    @Override
+    public void createMobileNumbers(Profile profile, Map<String, String> contacts) {
+        List<MobileUser> mUsers = new ArrayList<>();
+        
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<MobileContactList> cq = cb.createQuery(MobileContacts.class);
+        Root<MobileContactList> r = cq.from(MobileContacts.class);
+        cq.where(cb.equal(r.get("profile"), profile));
+
+        TypedQuery<MobileContactList> q = em.createQuery(cq);
+                
+        MobileContacts mcl = new MobileContacts();
+        boolean found = false;
+        if(q.getMaxResults()>0){
+            mcl = q.getSingleResult();
+            found=true;
+        }
+            
+        for (Map.Entry<String, String> entry : contacts.entrySet()) {
+            String phone = entry.getKey();
+            String userName = entry.getValue();
+            
+            MobileUser mu = new MobileUser(userName, phone);
+            if(!mUsers.contains(mu)){
+                mUsers.add(mu);
+            }            
+        }
+        
+        mcl.setProfile(profile);
+        mcl.setMobileContactList(mUsers);
+        
+        if(found){
+            em.merge(mcl);
+        }else{
+            em.persist(mcl);
+        }
+        
+        //Creating/Updating SuggestList
+        TypedQuery<Profile> query = em.createNamedQuery("ReadProfileListByNumbers", Profile.class);
+        query.setParameter("mobileNumber",contacts.keySet());
+        
+        List<Profile> suggestList= query.getResultList();
+        
+        if(!suggestList.isEmpty()){
+            SuggestList sl = new SuggestList(profile, suggestList);
+            em.persist(sl);
+        }
+        
+    }
+
+    @Override
+    public Boolean checkPassword(Profile profile, String password) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<ProfilePassword> cq = cb.createQuery(ProfilePassword.class);
+        Root<ProfilePassword> r = cq.from(ProfilePassword.class);
+        List<Predicate> pred = new ArrayList<>();
+        pred.add(cb.equal(r.get("profile"), profile));
+        pred.add(cb.equal(r.get("profilePassword"), password));
+        cq.where(pred.toArray(new Predicate[]{}));
+
+        TypedQuery<ProfilePassword> q = em.createQuery(cq);
+        
+        return !q.getResultList().isEmpty();
+    }
+     */

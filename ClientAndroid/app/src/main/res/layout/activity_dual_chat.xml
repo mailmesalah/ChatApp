@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activityDualChatLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="chatapp.dashboard.fragments.dual.DualChatActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/colorPrimaryDark">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/profileHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="enterAlways">
+
+                <FrameLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/imageButtonProfileImage"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:adjustViewBounds="true"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_default_profile_image"
+                        />
+                    <ImageButton
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:padding="0dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/round_corner_blue"
+                        />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/textViewProfileName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Profile Name"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerDualChatContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/bottomToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="2dp"
+            android:gravity="center|center_vertical|center_horizontal"
+            app:layout_anchor="@id/recyclerDualChatContainer"
+            app:layout_anchorGravity="bottom|end">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:src="@drawable/ic_more"
+                app:backgroundTint="@color/colorPrimary"
+                app:elevation="6dp"
+                app:fabSize="mini"
+                app:pressedTranslationZ="12dp" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextChatText"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:hint="Type Here"
+                android:padding="5dp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabSmiley"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:src="@drawable/ic_smiley"
+                app:backgroundTint="@color/colorPrimary"
+                app:elevation="6dp"
+                app:fabSize="mini"
+                app:pressedTranslationZ="12dp" />
+
+            <ImageButton
+                android:id="@+id/imageButtonSend"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:src="@drawable/ic_send_chat" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Smiley as Bottom Sheet -->
+    <include layout="@layout/bottom_sheet_dual_chat_smiley" />
+
+</android.support.design.widget.CoordinatorLayout>

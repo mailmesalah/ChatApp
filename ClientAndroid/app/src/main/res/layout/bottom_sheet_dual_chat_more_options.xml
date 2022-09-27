@@ -1,0 +1,174 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetSearchDualChat"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/windowBackground"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_image"
+        app:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        android:layout_gravity="bottom|left"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_video"
+        app:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        android:layout_gravity="bottom|left"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_music"
+        app:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        android:layout_gravity="bottom|left"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_take_photo"
+        app:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        android:layout_gravity="bottom|left"
+        />
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_videocam"
+            app:backgroundTint="@color/colorPrimary"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_gravity="bottom|left"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_webcam"
+            app:backgroundTint="@color/colorPrimary"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_gravity="bottom|left"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_voice_record"
+            app:backgroundTint="@color/colorPrimary"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_gravity="bottom|left"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_voice_call"
+            app:backgroundTint="@color/colorPrimary"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_gravity="bottom|left"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_attachment"
+            app:backgroundTint="@color/colorPrimary"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_gravity="bottom|left"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_contact"
+            app:backgroundTint="@color/colorPrimary"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_gravity="bottom|left"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_big_file_upload"
+            app:backgroundTint="@color/colorPrimary"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_gravity="bottom|left"
+            />
+        
+    </LinearLayout>
+</LinearLayout>

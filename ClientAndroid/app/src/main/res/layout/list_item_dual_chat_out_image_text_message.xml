@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:layout_gravity="right|end"
+    android:gravity="right|end"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/default_out_message_border"
+        android:padding="5dp"
+        android:gravity="right|end"
+        >
+
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/textViewDateTime"
+            android:text="22-Dec-2016 12:23 pm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/startup_logo" />
+
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/textViewTextMessage"
+            android:text="Out going text"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        />
+
+    </LinearLayout>
+
+</LinearLayout>

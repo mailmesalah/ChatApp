@@ -1,0 +1,197 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetDualChatSmiley"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/windowBackground"
+    android:gravity="center"
+    android:orientation="vertical"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_satisfied_face"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_sad_face"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_happy_face"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_bad_face"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_very_satisfied_face"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_very_sad_face"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_neutral_face"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_handsome"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_love_fill"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_love_border"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_girl_boy"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_question_mark_fill"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_question_mark_border"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_sleeping_in_bed"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:src="@drawable/smiley_hand"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="6dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="12dp" />
+
+    </LinearLayout>
+</LinearLayout>

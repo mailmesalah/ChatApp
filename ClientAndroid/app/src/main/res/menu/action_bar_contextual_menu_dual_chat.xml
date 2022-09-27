@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <item
+        android:id="@+id/menuForward"
+        android:icon="@android:drawable/ic_menu_share"
+        android:showAsAction="always"
+        android:title="Delete"
+        android:titleCondensed="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </item>
+
+    <item
+        android:id="@+id/menuCopy"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:showAsAction="always"
+        android:title="Delete"
+        android:titleCondensed="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </item>
+
+    <item
+        android:id="@+id/menuDelete"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:showAsAction="always"
+        android:title="Delete"
+        android:titleCondensed="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </item>
+
+
+
+</menu>
